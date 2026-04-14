@@ -12,7 +12,17 @@ function App() {
     const results = movieList.filter((movie) => movie.id !== id)
     setMovieList(results)
 
-    console.log(movieList)
+    // console.log(movieList)
+  }
+
+  const addMovie = (movie) => {
+
+    setMovieList([...movieList, movie])
+
+  }
+
+  const clearList = () => {
+    setMovieList([])
   }
 
   return (
@@ -20,9 +30,11 @@ function App() {
       <h1>Exercises</h1>
       <LightSwitchCounter/>
       <h2>Movie List</h2>
-      <MovieList movies={movies} removeFunction={removeMovie}/>
+      <MovieList movies={movieList} removeFunction={removeMovie} addFunction={() => addMovie({id: 6, title: "Pretty Woman", rating: 7.1})} clearFunction={clearList}/>
     </>
   )
 }
 
 export default App
+
+//1025
